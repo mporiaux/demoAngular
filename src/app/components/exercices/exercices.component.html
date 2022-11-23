@@ -1,0 +1,31 @@
+
+<div>
+ numero du client :  <input type = "text" [(ngModel)]="numrech"><br>
+  <button (click)="recherche()">recherche</button>
+</div>
+
+<div *ngIf="client">{{client.nom}}</div>
+<ng-template [ngIf]="client" [ngIfElse]="inconnu">
+{{client.nom}}
+</ng-template>
+<ng-template #inconnu>
+  <div>inconnu</div>
+</ng-template>
+
+<form #f=ngForm (ngSubmit)="rechercheNom(f.value)">
+ nom recherché :  <input type="text" ngModel name="nom">
+</form>
+<ng-template [ngIf]="clistrouv">
+<ng-template [ngIf]="clistrouv.length>0" [ngIfElse]="inconnu">
+<div >
+  <ul>
+    <li *ngFor="let c of clistrouv">
+      {{c.idclient}} <button (click)="effacer(c)">effacer</button>
+    </li>
+  </ul>
+</div>
+</ng-template>
+<ng-template #inconnu>
+  Nom inconnu
+</ng-template>
+</ng-template>
