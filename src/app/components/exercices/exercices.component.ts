@@ -28,7 +28,7 @@ export class ExercicesComponent implements OnInit {
     this.client=null;
     this.clientservice.getClient(this.numrech).subscribe({
       next:data=>this.client=data,
-      error: error=> alert("erreur "+error.headers.get("Error"))
+      error: error=> alert("erreur "+error.headers.get("error"))
     })
   }
 
@@ -53,5 +53,14 @@ export class ExercicesComponent implements OnInit {
         }},
       error: error => alert("erreur d'effacement"+ error.headers.get("error"))
     })
+  }
+
+  rechParForm(value: any) {
+     //this.client=null;
+     let numero:number = value.numero;
+     this.clientservice.getClient(numero).subscribe({
+       next: data => this.client=data,
+       error: error => {alert("erreur ");this.client=null }
+     })
   }
 }

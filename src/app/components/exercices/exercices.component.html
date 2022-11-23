@@ -9,8 +9,13 @@
  numero du client :  <input type = "text" [(ngModel)]="numrech"><br>
   <button (click)="recherche()">recherche</button>
 </div>
-
 <div *ngIf="client">{{client.nom}}</div>
+
+<<form #f="ngForm" (ngSubmit)="rechParForm(f.value)">
+  numero : <input type="text" ngModel name="numero">
+</form>
+
+
 <ng-template [ngIf]="client" [ngIfElse]="inconnu">
 {{client.nom}}
 </ng-template>
@@ -18,7 +23,17 @@
   <div>inconnu</div>
 </ng-template>
 
-<form #f=ngForm (ngSubmit)="rechercheNom(f.value)">
+
+
+
+
+
+
+
+
+
+
+<form #f2=ngForm (ngSubmit)="rechercheNom(f2.value)">
  nom recherché :  <input type="text" ngModel name="nom">
 </form>
 <ng-template [ngIf]="clistrouv">
@@ -26,7 +41,8 @@
 <div >
   <ul>
     <li *ngFor="let c of clistrouv">
-      {{c.idclient}} <button (click)="effacer(c)">effacer</button>
+      {{c.idclient}} - {{c.nom}}- {{c.prenom}}- {{c.tel}}
+      <!--<button (click)="effacer(c)">effacer</button>-->
     </li>
   </ul>
 </div>
