@@ -1,4 +1,10 @@
 
+<div *ngIf="client">
+{{client.nom}}
+</div>
+
+
+
 <div>
  numero du client :  <input type = "text" [(ngModel)]="numrech"><br>
   <button (click)="recherche()">recherche</button>

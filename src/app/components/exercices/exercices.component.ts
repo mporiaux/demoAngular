@@ -16,9 +16,14 @@ export class ExercicesComponent implements OnInit {
   constructor(private  clientservice: ClientsService) {}
 
   ngOnInit(): void {
-
+    this.onSearchById(1);
   }
-
+  onSearchById(idclient:number){
+    this.clientservice.getClient(idclient).subscribe({
+      next:data=>this.client=data,
+      error:error=>alert(error)
+    })
+  }
   recherche() {
     this.client=null;
     this.clientservice.getClient(this.numrech).subscribe({
