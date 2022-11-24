@@ -39,18 +39,15 @@ export class ExercicesComponent implements OnInit {
         })
    }
 
-  suite() {
-    alert("c'est la suite")
-  }
-
   effacer(c:Client) {
     this.clientservice.deleteClient(c).subscribe({
       next : data=> {alert("record effacé");
+      // this.rechercheNom(c);
         const index = this.clistrouv?.indexOf(c, 0);
-        alert("index = "+index);
         if (!(index === undefined) && index > -1) {
           this.clistrouv?.splice(index, 1);
-        }},
+        }
+      },
       error: error => alert("erreur d'effacement"+ error.headers.get("error"))
     })
   }
