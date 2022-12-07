@@ -8,8 +8,9 @@ import { HomeComponent } from './components/home/home.component';
 import { ClientsComponent } from './components/clients/clients.component';
 import { CommandesComponent } from './components/commandes/commandes.component';
 import {HttpClientModule} from "@angular/common/http";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { ExercicesComponent } from './components/exercices/exercices.component';
+import { NewclientComponent } from './components/newclient/newclient.component';
 
 @NgModule({
   declarations: [
@@ -18,13 +19,15 @@ import { ExercicesComponent } from './components/exercices/exercices.component';
     HomeComponent,
     ClientsComponent,
     CommandesComponent,
-    ExercicesComponent
+    ExercicesComponent,
+    NewclientComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+   ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

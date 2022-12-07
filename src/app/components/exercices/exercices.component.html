@@ -1,42 +1,66 @@
-<form #f2=ngForm (ngSubmit)="rechercheNom(f2.value)">
- nom recherché :  <input type="text" ngModel name="nom">
+<form #f2=ngForm (ngSubmit)="rechercheParID(f2.value)">
+ idrecherché :  <input type="text" ngModel name="idclient">
 </form>
 
-
-<ul>
-  <li *ngFor="let cl of clistrouv">
-    {{cl.nom}}-{{cl.prenom}}-{{cl.tel}}
-  </li>
-</ul>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<ng-template [ngIf]="clistrouv" >
-<ng-template [ngIf]="clistrouv.length>0" [ngIfElse]="inconnu">
-<div class="demo">
-  <ul>
-    <li *ngFor="let c of clistrouv">
-      {{c.nom}}- {{c.prenom}}- {{c.tel}}
-      <button (click)="effacer(c)">effacer</button>
-    </li>
-  </ul>
+<div class="container">
+  <form [formGroup]="clientFormGroup"  *ngIf="clientFormGroup">
+    <div class="form-group">
+      <label>nom</label>
+      <input type="text" formControlName="nom" class="form-control" [ngClass]="{'is-invalid':submitted && clientFormGroup.controls.nom.errors,'is-valid':submitted && !clientFormGroup.controls.nom.errors}">
+       <div class="invalid-feedback" *ngIf="submitted && clientFormGroup.controls.nom.errors">
+         <div *ngIf="clientFormGroup.controls.nom.errors.required">
+         nom obligatoire
+         </div>
+       </div>
+    </div>
+    <div class="form-group">
+      <label>prenom</label>
+      <input type="text" formControlName="prenom" class="form-control" [ngClass]="{'is-invalid':submitted && clientFormGroup.controls.prenom.errors,'is-valid':submitted && !clientFormGroup.controls.prenom.errors}">
+      <div class="invalid-feedback" *ngIf="submitted && clientFormGroup.controls.prenom.errors">
+        <div *ngIf="clientFormGroup.controls.prenom.errors.required">
+          prénom obligatoire
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>tel</label>
+      <input type="text" formControlName="tel" class = "form-control" [ngClass]="{'is-invalid':submitted && clientFormGroup.controls.tel.errors,'is-valid':submitted && !clientFormGroup.controls.tel.errors}">
+      <div class="invalid-feedback" *ngIf="submitted && clientFormGroup.controls.tel.errors">
+        <div *ngIf="clientFormGroup.controls.tel.errors.required">
+          tel obligatoire
+        </div>
+      </div>
+    </div>
+    <button (click)="majClient()">maj</button>
+  </form>
 </div>
-</ng-template>
-<ng-template #inconnu>
-  Nom inconnu
-</ng-template>
-</ng-template>
+
+<form #f3=ngForm (ngSubmit)="rechercheComParID(f3.value)">
+  idrecherché :  <input type="text" ngModel name="idcom">
+</form>
+
+<div class = container>
+  <div *ngIf="comfactFormGroup">
+    <form [formGroup]="comfactFormGroup">
+      <div class="form-group">
+        <label>etat</label>
+        <input type="text" formControlName="etat" class="form-control" [ngClass]="{'is-invalid':submitted && comfactFormGroup.controls.etat.errors,'is-valid':submitted && !comfactFormGroup.controls.etat.errors}">
+        <div class="invalid-feedback" *ngIf="submitted && comfactFormGroup.controls.etat.errors">
+          <div *ngIf="comfactFormGroup.controls.etat.errors.required">
+            état obligatoire
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>montant</label>
+        <input type="text" formControlName="montant" class="form-control" [ngClass]="{'is-invalid':submitted && comfactFormGroup.controls.montant.errors,'is-valid':submitted && !comfactFormGroup.controls.montant.errors}">
+        <div class="invalid-feedback" *ngIf="submitted && comfactFormGroup.controls.montant.errors">
+          <div *ngIf="comfactFormGroup.controls.montant.errors.required">
+           montant obligatoire
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
