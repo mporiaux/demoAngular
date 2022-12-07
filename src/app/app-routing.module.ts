@@ -5,6 +5,7 @@ import {ClientsComponent} from "./components/clients/clients.component";
 import {CommandesComponent} from "./components/commandes/commandes.component";
 import {ExercicesComponent} from "./components/exercices/exercices.component";
 import {NewclientComponent} from "./components/newclient/newclient.component";
+import {EditclientComponent} from "./components/editclient/editclient.component";
 
 //routes pour composants
 const routes: Routes = [
@@ -12,7 +13,8 @@ const routes: Routes = [
   {path:"clients",component:ClientsComponent},
   {path:"commandes",component:CommandesComponent},
   {path:"exercices",component:ExercicesComponent},
-  {path:"newClient",component:NewclientComponent}
+  {path:"newClient",component:NewclientComponent},
+  {path:"editclient/:idclient",component:EditclientComponent}
 ];
 
 @NgModule({

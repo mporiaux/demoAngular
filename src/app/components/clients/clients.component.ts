@@ -44,5 +44,7 @@ export class ClientsComponent implements OnInit {
       );
     }
   }
-  onEdit(c: Client) { }//développé plus tard
+  onEdit(c: Client) {
+    this.router.navigateByUrl("editclient/"+c.idclient);
+  }//développé plus tard
 }
