@@ -134,6 +134,7 @@ export class ExercicesComponent implements OnInit {
   }
 
   rechercheComParID(value: any) {
+
     this.comfactService.search(value.idcom).subscribe({
         next: data => {
           this.comfactFormGroup = this.fb.group(
