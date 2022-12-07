@@ -21,4 +21,12 @@ export class ClientsService {
   deleteClient(client:Client):Observable<void>{
     return this.httpClient.delete<void>(this.host+"/clients/"+client.idclient);
   }
+
+  save(value:Client):Observable<Client> {
+   return this.httpClient.post<Client>(this.host+"/clients",value);
+  }
+
+  updateClient(value:Client):Observable<Client>{
+    return this.httpClient.put<Client>(this.host+"/clients/"+value.idclient,value);
+  }
 }
