@@ -12,6 +12,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { ExercicesComponent } from './components/exercices/exercices.component';
 import { NewclientComponent } from './components/newclient/newclient.component';
 import { EditclientComponent } from './components/editclient/editclient.component';
+import { EditcommandeComponent } from './components/editcommande/editcommande.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { EditclientComponent } from './components/editclient/editclient.componen
     ExercicesComponent,
     NewclientComponent,
     EditclientComponent,
+    EditcommandeComponent,
   ],
   imports: [
     BrowserModule,

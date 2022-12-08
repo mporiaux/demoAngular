@@ -1,1 +1,6 @@
-<p>commandes works!</p>
+<form (ngSubmit)="onSearch()">
+ numéro de commande : <input type = "text" [(ngModel)]="numcommande" name="numcommande">
+</form>
+<div *ngIf="comfact">
+<app-editcommande [comfact]="comfact"></app-editcommande>
+</div>
