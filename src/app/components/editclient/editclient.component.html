@@ -38,7 +38,6 @@ clientFormGroup.controls.cp.errors}">
         ="invalid-feedback">
         <div *ngIf="clientFormGroup.controls.cp.errors.required">
           code postal obligatoire
-          18
         </div>
         <div *ngIf="clientFormGroup.controls.cp.errors.min">
           le code postal doit être supérieur ou égal à 1000
@@ -96,5 +95,34 @@ clientFormGroup.controls.tel.errors}">
     <button (click)="onUpdateClient()" class="btn btn-success">
       Save
     </button>
+    <button (click)="onShowComClient()" class="btn btn-success">
+      commandes
+    </button>
   </form>
 </div>
+
+<ng-container *ngIf="comfacts" >
+  <ng-container *ngIf="comfacts.length>0 else vide">
+    <table class="table">
+      <thead>
+      <th>Numcommande</th>
+      <th>Numfact</th>
+      <th>Datecom</th>
+      <th>Etat</th>
+      <th>Montant</th>
+      </thead>
+      <tbody>
+      <tr *ngFor="let com of comfacts">
+        <td>{{com.numcommande}}</td>
+        <td>{{com.numfact}}</td>
+        <td>{{com.datecom|date: 'dd-MM-yyyy'}}</td>
+        <td>{{com.etat}}</td>
+        <td>{{com.montant}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </ng-container>
+  <ng-template #vide>
+    Aucune commande pour ce client
+  </ng-template>
+</ng-container>

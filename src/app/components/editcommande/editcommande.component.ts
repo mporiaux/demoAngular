@@ -32,7 +32,7 @@ export class EditcommandeComponent implements OnInit {
     }
     let comfactmaj:Comfact=this.comfactFormGroup?.value;
     if(this.comfact) {//permet de s'assurer que la commande a bien une valeur et évite les avertissements "possiblement indéfini"
-      comfactmaj.client = this.comfact.client; //car le formulaire ne donne une valeur qu' aux champs propres de la commande
+       comfactmaj.client = this.comfact.client; //car le formulaire ne donne une valeur qu' aux champs propres de la commande
       this.comfactService.updateComfact(comfactmaj).subscribe({
         next: data => alert('maj ok'),
         error : err => alert(err.headers.get("error"))
