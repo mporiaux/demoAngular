@@ -126,3 +126,4 @@ clientFormGroup.controls.tel.errors}">
     Aucune commande pour ce client
   </ng-template>
 </ng-container>
+<app-new-comfact [cliact]="clientFormGroup" (newComfact)="addComfact($event)"></app-new-comfact>

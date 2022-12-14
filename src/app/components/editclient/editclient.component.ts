@@ -50,4 +50,8 @@ export class EditclientComponent implements OnInit {
        error:err => alert("erreur de recherche de commandes")
      })
   }
+
+  addComfact($event: Comfact) {
+    this.comfacts?.push($event);
+  }
 }
